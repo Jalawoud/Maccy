@@ -3,7 +3,11 @@
 
 <img width="128px" src="https://maccy.app/img/maccy/Logo.png" alt="Logo" />
 
-# [Maccy](https://maccy.app)
+# [Maccy — paste on shortcut release](https://maccy.app)
+
+> **About this fork:** This version selects the highlighted clipboard item when you release the shortcut’s modifier key, even after pressing the shortcut only once. With **Paste automatically** enabled, the selected item is pasted. For example, hold Option, press V to open the list, press V again to cycle if desired, then release Option to paste. Set Option–V as the popup shortcut in Preferences. The [original Maccy](https://github.com/p0deje/Maccy) enters toggle mode after a single shortcut press instead.
+>
+> The installation links below are for the original Maccy and do not include this fork’s change. This fork currently provides source code; it does not provide a prebuilt release.
 
 [![Downloads](https://img.shields.io/github/downloads/p0deje/Maccy/total.svg)](https://github.com/p0deje/Maccy/releases/latest)
 [![Build Status](https://img.shields.io/bitrise/716921b669780314/master?token=3pMiCb5dpFzlO-7jTYtO3Q)](https://app.bitrise.io/app/716921b669780314)
