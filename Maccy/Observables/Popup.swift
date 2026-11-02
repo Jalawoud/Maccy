@@ -177,19 +177,16 @@ class Popup {
   }
 
   private func handleFlagsChanged(_ event: NSEvent) -> NSEvent? {
-    // If we are in cycle mode, releasing modifiers triggers a selection
-    if state == .cycle && allModifiersReleased(event) {
+    // Select the highlighted item on release, even if the shortcut was pressed only once.
+    if (state == .opening || state == .cycle) && allModifiersReleased(event) {
+      // Claim the release before scheduling selection: multiple modifier events can
+      // arrive before the asynchronously scheduled selection closes the popup.
+      state = .toggle
       let modifierFlags = NSEvent.ModifierFlags.currentModifierFlags
       DispatchQueue.main.async {
         AppState.shared.select(flags: modifierFlags)
       }
       return nil
-    }
-
-    // Otherwise if in opening mode, enter toggle mode
-    if state == .opening && allModifiersReleased(event) {
-      state = .toggle
-      return event
     }
 
     return event
